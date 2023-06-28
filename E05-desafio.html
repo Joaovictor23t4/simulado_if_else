@@ -9,11 +9,26 @@
     */
 
     //ENTRADA
-
-
+    const qtdBaixa = Number(prompt(`Quantas consultas de baixa complexidade você atende por dia?`));
+    const qtdMedia = Number(prompt(`Quantas consultas de média complexidade você atende por dia?`));
+    const qtdAlta = Number(prompt(`Quantas consultas de alta complexidade você atende por dia?`));
     //PROCESSAMENTO
+    const tempoTrabalhado = (qtdBaixa * 15) + (qtdMedia * 40) + (qtdAlta * 75);
 
-    
+    const horasTrabalhadas = Math.floor(tempoTrabalhado / 60);
+    const minutos = tempoTrabalhado % 60;
+
+    if (horasTrabalhadas < 8) {
+        alert(`Seu salário é de R$50,00 por hora \nTempo trabalhado: ${horasTrabalhadas} horas e ${minutos} minutos`);
+    }
+
+    else if (horasTrabalhadas >= 8 && horasTrabalhadas <= 10) {
+        alert(`Seu salário é de R$75,00 por hora \nTempo trabalhado: ${horasTrabalhadas} horas e ${minutos} minutos`);
+    }
+
+    else {
+        alert(`Seu salário é de R$90,00 por hora \nTempo trabalhado: ${horasTrabalhadas} horas e ${minutos} minutos`);
+    }
     //SAÍDA
 
 

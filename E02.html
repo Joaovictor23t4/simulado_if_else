@@ -9,11 +9,23 @@
     //Calcule o custo total dos alimentos e verifique se há dinheiro suficiente para realizar a compra, indicando se sobrará ou faltará dinheiro, e também apresentando qual foi a quantia que sobrou ou faltou para realizar a compra. Apresente também na tela o valor total da compra.
 
     //ENTRADA
-
-
+    const mamaoUnidade = Number(prompt(`Informe o preço de 1 unidade de mamão`).replace("," , "."));
+    const melanciaKg = Number(prompt(`Informe o preço de 1 Kg de melancia`).replace("," , "."));
+    const abacateUnidade = Number(prompt(`Informe o preço de 1 unidade de abacate`).replace("," , "."));
+    const cebolaKg = Number(prompt(`Informe o preço de 1 Kg de cebola`).replace("," , "."));
+    const dinheiroEmMaos = Number(prompt(`Informe o dinheiro que você possui para realizar a compra`).replace("," , "."));
     //PROCESSAMENTO
+    const gasto = (mamaoUnidade * 5) + (melanciaKg * 3) + (abacateUnidade * 4) + (cebolaKg * 1.1);
+    const verificacao = dinheiroEmMaos - gasto;
+    const faltou = verificacao * -1;
 
+    if (verificacao > 0) {
+        alert(`Sobrará R$${verificacao.toFixed(2).replace("." , ",")}`);
+    }
 
+    else {
+        alert(`Faltará R$${faltou.toFixed(2).replace("." , ",")}`);
+    }
     //SAÍDA
 
 </script>

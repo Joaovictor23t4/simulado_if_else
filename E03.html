@@ -7,11 +7,53 @@
     //Calcule se o usuário possui dinheiro suficiente para realizar a viagem para o destino que pretende. Se o usuário puder viajar, o programa apresentará a mensagem "Boa viagem" e quantos dias poderá ficar no destino, além de qual será o custo da viagem. Caso não possa viajar o programa apresentará a mensagem "Sem Férias" e também apresentará "quantos dinheiros" (R$) estão faltando para realizar a viagem.
 
     //ENTRADA
-
-
+    const destinoPretendido = prompt(`Para qual destino você pretende ir, Rio Grande do Sul (RS) ou Minas Gerais (MG)?`).toUpperCase();
+    const dias = Number(prompt(`Quantos dias você pretende ficar no destino?`));
+    const dinheiroQuePossui = Number(prompt(`Quantos reais você possui para fazer a viagem?`).replace("," , "."));
     //PROCESSAMENTO
+    const dinheiroRS = 180 * dias;
+    // const dinheiroGastoRS = dinheiroQuePossui - dinheiroRS;
 
+    const dinheiroMG = 210 * dias;
+    // const dinheiroGastoMG = dinheiroQuePossui - dinheiroMG;
 
+    const faltandoRS = dinheiroRS - dinheiroQuePossui;
+    const faltandoMG = dinheiroMG - dinheiroQuePossui; 
+
+    let mensagemDias = `Boa viagem! Aproveite os ${dias} dias!`;
+    let mensagemDia = `Boa viagem aproveite o único dia!`;
     //SAÍDA
+    if (destinoPretendido === "RS") {
+        if (dinheiroRS <= dinheiroQuePossui) {
+            if (dias > 1) {
+                alert(`${mensagemDias} \nDinheiro Gasto: R$${dinheiroRS.toFixed(2).replace("." , ",")}`);
+            }
+            else {
+                alert(`${mensagemDia} \nDinheiro Gasto: R$${dinheiroRS.toFixed(2).replace("." , ",")}`);
+            }
+        }
 
+        else {
+            alert(`Sem férias! \nDinheiro Faltando: R$${faltandoRS.toFixed(2).replace("." , ",")}`);
+        }
+    }
+
+    else if (destinoPretendido === "MG") {
+        if (dinheiroMG <= dinheiroQuePossui) {
+            if (dias > 1) {
+                alert(`${mensagemDias} \nDinheiro Gasto: R$${dinheiroMG.toFixed(2).replace("." , ",")}`);
+            }
+            else {
+                alert(`${mensagemDia} \nDinheiro Gasto: R$${dinheiroMG.toFixed(2).replace("." , ",")}`);
+            }
+        }
+
+        else {
+            alert(`Sem férias! \nDinheiro Faltando: R$${faltandoMG.toFixed(2).replace("." , ",")}`);
+        }
+    }
+
+    else {
+        alert(`Destino inválido!`);
+    }
 </script>
